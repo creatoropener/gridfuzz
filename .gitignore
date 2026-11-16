@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+playwright/.cache/
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+# Keep the Kiro configuration in version control (it is part of the project).
+# Only local, per-machine Kiro state is ignored:
+.kiro/settings/local.json
