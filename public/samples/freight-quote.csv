@@ -1,0 +1,19 @@
+Freight Quotation,
+"Shanghai (CNSHA) to Rotterdam (NLRTM), 1 x 40' HC, quote FQ-2026-0417",
+,
+Charges (USD),Amount
+Base ocean freight,2400
+Fuel surcharge,180
+Drayage,350
+Handling charges,125
+Other charges,60
+Subtotal,=SUM(B5:B9)
+Volume rebate,"=IF(B10>B17,B10*B18,0)"
+Taxable amount,=B10-B11
+Tax,"=ROUND(B12*B19,2)"
+Final freight cost,=B12+B13
+,
+Contract terms,
+Rebate threshold (USD),3500
+Rebate rate,0.05
+Tax rate,0.09

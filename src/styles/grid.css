@@ -1,0 +1,342 @@
+.gridpane {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  background: var(--bg);
+}
+.gridpane__bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: 6px var(--space-3);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  font-size: var(--text-sm);
+}
+.gridpane__sheet {
+  font-weight: 600;
+}
+.gridpane__error,
+.gridpane__empty {
+  padding: var(--space-4);
+}
+
+.seg {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+}
+.seg__btn {
+  padding: 3px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--text-2);
+  font: inherit;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  cursor: pointer;
+}
+.seg__btn.is-on {
+  background: var(--surface-3);
+  color: var(--text);
+  box-shadow: 0 0 0 1px var(--line-strong);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--text-2);
+  font-size: var(--text-xs);
+}
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend__sw {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--surface-3);
+}
+.legend__sw--input {
+  background: color-mix(in srgb, var(--role-input) 22%, transparent);
+  box-shadow: inset 3px 0 0 var(--role-input);
+}
+.legend__sw--output {
+  background: color-mix(in srgb, var(--role-output) 22%, transparent);
+  box-shadow: inset 3px 0 0 var(--role-output);
+}
+.legend__sw--failing {
+  background: color-mix(in srgb, var(--fail) 20%, transparent);
+  outline: 1.5px dashed var(--fail);
+  outline-offset: -2px;
+}
+.legend__sw--suspect {
+  background: color-mix(in srgb, var(--warn) 18%, transparent);
+  outline: 1.5px dotted var(--warn);
+  outline-offset: -2px;
+}
+.legend__sw--edited::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 8px solid var(--warn);
+  border-left: 8px solid transparent;
+}
+
+.scenario-banner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: 8px var(--space-3);
+  border-bottom: 1px solid color-mix(in srgb, var(--fail) 45%, var(--line));
+  background: color-mix(in srgb, var(--fail) 10%, var(--surface));
+  font-size: var(--text-sm);
+}
+.scenario-banner > svg {
+  flex: none;
+  color: var(--fail);
+}
+.scenario-banner__text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.fbar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 6px var(--space-2);
+  padding: 8px var(--space-3);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.fbar__name {
+  min-width: 52px;
+  padding: 5px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface-2);
+  text-align: center;
+}
+.fbar__field {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.fbar__input {
+  flex: 1;
+}
+.fbar__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px var(--space-3);
+  grid-column: 2;
+  font-size: var(--text-xs);
+}
+.fbar__label {
+  color: var(--text-2);
+  font-weight: 500;
+}
+.fbar__value {
+  color: var(--text);
+}
+.fbar__value--error {
+  color: var(--fail);
+}
+.fbar__edited {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gridwrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--surface);
+}
+.gridwrap:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--accent);
+  border-radius: 0;
+}
+.gridwrap__foot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+
+.grid {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12.5px;
+}
+.colhead,
+.rowhead,
+.corner {
+  position: sticky;
+  z-index: 1;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  user-select: none;
+}
+.colhead {
+  top: 0;
+  z-index: 2;
+  height: 24px;
+  min-width: 92px;
+  padding: 0 8px;
+  text-align: center;
+}
+.rowhead {
+  left: 0;
+  width: 40px;
+  min-width: 40px;
+  padding: 0 8px;
+  text-align: right;
+}
+.corner {
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 40px;
+  min-width: 40px;
+}
+.colhead.is-active,
+.rowhead.is-active {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.cell {
+  position: relative;
+  min-width: 92px;
+  max-width: 300px;
+  height: 26px;
+  padding: 0 8px;
+  overflow: hidden;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  cursor: cell;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cell:hover {
+  background: var(--surface-2);
+}
+.cell--num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.cell--formula {
+  color: var(--accent-strong);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+.cell--error {
+  color: var(--fail);
+  font-weight: 600;
+}
+.cell.is-selected {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+.cell.is-edited::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-top: 9px solid var(--warn);
+  border-left: 9px solid transparent;
+}
+
+.mark-input {
+  --mark: var(--role-input);
+}
+.mark-context {
+  --mark: var(--role-context);
+}
+.mark-path {
+  --mark: var(--role-path);
+}
+.mark-output {
+  --mark: var(--role-output);
+}
+.cell[class*='mark-']::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  background: var(--mark, transparent);
+}
+.cell[class*='mark-'] {
+  background: color-mix(in srgb, var(--mark, transparent) 12%, var(--surface));
+}
+.cell.mark-suspect {
+  background: color-mix(in srgb, var(--warn) 15%, var(--surface));
+  outline: 1.5px dotted var(--warn);
+  outline-offset: -3px;
+}
+/* The stitched outline: the one memorable thing on the grid. It marks cells that moved against the rule. */
+.cell.mark-failing {
+  background: color-mix(in srgb, var(--fail) 16%, var(--surface));
+  outline: 1.5px dashed var(--fail);
+  outline-offset: -3px;
+}
+
+.inspector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px var(--space-5);
+  padding: 8px var(--space-3);
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  font-size: var(--text-xs);
+}
+.inspector__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+.inspector__label {
+  margin-right: 4px;
+  color: var(--text-2);
+  font-weight: 600;
+}
+.chip {
+  padding: 1px 7px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}

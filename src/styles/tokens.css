@@ -1,0 +1,100 @@
+/* Design tokens. Dark is the default; light is selected with data-theme="light". */
+:root {
+  --font-ui: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-md: 0.875rem;
+  --text-lg: 1rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.75rem;
+  --text-hero: clamp(1.75rem, 1.2rem + 2.2vw, 2.6rem);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  --header-h: 48px;
+  --pane-left: 256px;
+  --pane-right: 460px;
+
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+
+  color-scheme: dark;
+  --bg: #0b0d11;
+  --surface: #11141a;
+  --surface-2: #171b22;
+  --surface-3: #1e232c;
+  --line: #242a34;
+  --line-strong: #343c49;
+  --text: #e8ebf0;
+  --text-2: #a7b0be;
+  --text-3: #7d8899;
+
+  --accent: #8aa4ff;
+  --accent-strong: #a6baff;
+  --accent-ink: #0a1020;
+  --accent-soft: color-mix(in srgb, var(--accent) 14%, transparent);
+
+  --pass: #52d6a2;
+  --fail: #ff7468;
+  --warn: #f3b94d;
+  --info: #6cb6ff;
+
+  --role-input: #6cb6ff;
+  --role-context: #8fa3bd;
+  --role-output: #b79cff;
+  --role-path: #4b5568;
+
+  --shadow-pop: 0 12px 32px rgb(0 0 0 / 0.45), 0 0 0 1px var(--line-strong);
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #f1f3f6;
+  --surface-3: #e7eaef;
+  --line: #e1e5eb;
+  --line-strong: #cbd2dc;
+  --text: #12161d;
+  --text-2: #465061;
+  --text-3: #66717f;
+
+  --accent: #3a53e0;
+  --accent-strong: #2a40c4;
+  --accent-ink: #ffffff;
+
+  --pass: #0b8a5f;
+  --fail: #cf3528;
+  --warn: #9a6000;
+  --info: #1569c7;
+
+  --role-input: #1569c7;
+  --role-context: #5b6b82;
+  --role-output: #7a49d6;
+  --role-path: #b3bcc9;
+
+  --shadow-pop: 0 12px 28px rgb(18 22 29 / 0.14), 0 0 0 1px var(--line-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
